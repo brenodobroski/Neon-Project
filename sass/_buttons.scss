@@ -1,0 +1,57 @@
+.btn-primary,
+.btn-secondary {
+  // Geral
+  display: inline-block;
+  line-height: 4.8rem;
+  padding: 0 2.6rem;
+  border-radius: 12.2rem;
+
+  //Typography
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.btn-primary {
+  // Geral
+  background-color: $brand-yellow;
+
+  // Typography
+  color: #855b35;
+
+  //Hover
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #ffdc5c;
+  }
+}
+
+.btn-secondary {
+  // Geral
+  border: 1px solid $brand-light-blue;
+  background-color: transparent;
+
+  // Typography
+  color: $brand-light-blue;
+
+  //Hover
+  transition: all 0.3s;
+  &:hover {
+    background-color: $brand-light-blue;
+    color: #ffffff;
+  }
+
+  // btn branco
+
+  &.white {
+    // Geral
+    border: 1px solid white;
+    color: white;
+
+    //Hover
+    &:hover {
+      background-color: white;
+      color: $brand-green-light;
+    }
+  }
+}
