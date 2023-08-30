@@ -1,5 +1,5 @@
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -12,9 +12,111 @@ header {
     @include flex(row, center, space-between);
   }
 
+  &.fixed-menu {
+    background-color: white;
+    box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.05);
+    z-index: 2025;
+
+    .logo {
+      background-image: url("../img/logo-neon-color.svg");
+    }
+
+    nav {
+      ul {
+        li {
+          a {
+            color: #5f5c6b;
+
+            &:hover {
+              color: #00a5f0;
+            }
+          }
+        }
+      }
+
+      .btn-secondary {
+        color: #00a5f0;
+        border: 1px solid #00a5f0;
+
+        &:hover {
+          background-color: #00a5f0;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .logo {
+    display: inline-block;
+    width: 13.2rem;
+    height: 3rem;
+    background: url("../img/logo.svg") no-repeat center center;
+    background-size: 100%;
+    transition: background-image 0.3s;
+  }
+
   nav {
+    position: relative;
     display: flex;
     align-items: center;
+
+    .dropdown {
+      position: absolute;
+      top: 7rem;
+      left: -4rem;
+      width: 100%;
+      max-width: 37.3rem;
+      background-color: white;
+      border-radius: 0.6rem;
+      padding: 4rem;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 2026;
+      transition: all 0.3s;
+      transform: translateY(1rem);
+
+      &.active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0rem);
+      }
+
+      &::after {
+        content: "";
+        width: 29.3rem;
+        height: 0.5rem;
+        background-color: #ffc800;
+        border-radius: 1.2rem 1.2rem 0rem 0rem;
+        position: absolute;
+        bottom: 0;
+      }
+
+      .item {
+        &:not(:last-child) {
+          margin-bottom: 2.8rem;
+        }
+        strong {
+          font-weight: 600;
+          font-size: 1.6rem;
+          line-height: 1.9rem;
+          color: #5f5c6b;
+          display: block;
+          margin-bottom: 0.4rem;
+          transition: all 0.3s;
+        }
+
+        strong:hover {
+          cursor: pointer;
+          color: cornflowerblue;
+        }
+
+        p {
+          font-size: 1.4rem;
+          line-height: 150%;
+          color: #8c8a97;
+        }
+      }
+    }
 
     ul {
       display: flex;
